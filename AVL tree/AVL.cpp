@@ -51,7 +51,7 @@ void AVL::Insert(int x) {
 }
 
 int AVL::InsertP(Node* N, int x, Node** RP) {
-	Node* NN; int Len;
+	Node* NN, *A, *B, *C, *T1, *T2; int Len;
 	if (N == NULL) {
 		NN = new Node;
 		NN->a = x; NN->LLen = 0; NN->RLen = 0;
@@ -64,7 +64,57 @@ int AVL::InsertP(Node* N, int x, Node** RP) {
 		else if (N->a > x) { Len = InsertP(N->L, x, &(N->L)); N->LLen = Len + 1; }
 		else;
 	}
-	return max(N->LLen, N->RLen);
+	if (N->LLen > N->RLen + 1 || N->RLen > N->LLen + 1) {
+		if (N->a > x && (N->L)->a > x) { // case LL
+			A = N; B = N->L;
+			T1 = B->R; B->R = A; A->L = T1;
+			if (A->L == NULL) A->LLen = 0;
+			else A->LLen = max((A->L)->LLen, (A->L)->RLen) + 1;
+			B->LLen = max((B->L)->LLen, (B->L)->RLen) + 1;
+			B->RLen = max((B->R)->LLen, (B->R)->RLen) + 1;
+			*RP = B;
+			return max(B->LLen, B->RLen);
+		}
+		else if (N->a > x && (N->L)->a < x) { // case LR
+			A = N; B = A->L; C = B->R;
+			T1 = C->L; T2 = C->R;
+			C->L = B; C->R = A;
+			B->R = T1; A->L = T2;
+			if (B->R == NULL) B->RLen = 0;
+			else B->RLen = max((B->R)->LLen, (B->R)->RLen) + 1;
+			if (A->L == NULL) A->LLen = 0;
+			else A->LLen = max((A->L)->LLen, (A->L)->RLen) + 1;
+			C->LLen = max((C->L)->LLen, (C->L)->RLen) + 1;
+			C->RLen = max((C->R)->LLen, (C->R)->RLen) + 1;
+			*RP = C;
+			return max(C->LLen, C->RLen);
+		}
+		else if (N->a < x && (N->R)->a < x) { // case RR
+			A = N; B = N->R;
+			T1 = B->L; B->L = A; A->R = T1;
+			if (A->R == NULL) A->RLen = 0;
+			else A->RLen = max((A->R)->LLen, (A->R)->RLen) + 1;
+			B->LLen = max((B->L)->LLen, (B->L)->RLen) + 1;
+			B->RLen = max((B->R)->LLen, (B->R)->RLen) + 1;
+			*RP = B;
+			return max(B->LLen, B->RLen);
+		}
+		else if (N->a < x && (N->R)->a > x) { // case RL
+			A = N; B = A->R; C = B->L;
+			T1 = C->L; T2 = C->R;
+			C->L = A; C->R = B;
+			A->R = T1; B->L = T2;
+			if (A->R == NULL) A->RLen = 0;
+			else A->RLen = max((A->R)->LLen, (A->R)->RLen) + 1;
+			if (B->L == NULL) B->LLen = 0;
+			else B->LLen = max((B->L)->LLen, (B->L)->RLen) + 1;
+			C->LLen = max((C->L)->LLen, (C->L)->RLen) + 1;
+			C->RLen = max((C->R)->LLen, (C->R)->RLen) + 1;
+			*RP = C;
+			return max(C->LLen, C->RLen);
+		}
+	}
+	else return max(N->LLen, N->RLen); //not reached
 }
 
 void AVL::Print() {
