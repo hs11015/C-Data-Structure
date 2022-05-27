@@ -26,7 +26,7 @@ public:
 
 AVL::AVL() {
 	Root = new Node;
-	Root->a = 999; Root->LLen = 0; Root->RLen = 0;
+	Root->a = 9999; Root->LLen = 0; Root->RLen = 0;
 	Root->L = NULL;
 	Root->R = NULL;
 }
@@ -123,7 +123,7 @@ void AVL::Print() {
 
 void AVL::PrintP(Node* N, int d, int LR) {
 	int i;
-	if (LR == 1) for (i = 0; i < d; i++) printf("            ");
+	if (LR == 1) for (i = 0; i < d; i++) printf("              ");
 	printf(" |%2d|%4d|%2d| ", N->LLen, N->a, N->RLen);
 	if (N->L == NULL) printf("\n");
 	else PrintP(N->L, d + 1, 0);
