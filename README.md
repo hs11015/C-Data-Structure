@@ -2,10 +2,13 @@
 
 <배열코딩>
 <br/>
+PackedUnsorted
 ![PackedUnsorted_result](https://user-images.githubusercontent.com/79328858/170777133-bd1d40d5-d5f1-4966-b4a4-9cfbd613cad7.JPG)
 <br/>
+Unpackedsorted
 ![Unpackedsorted_result](https://user-images.githubusercontent.com/79328858/170777136-295ace10-d2a6-43ae-9d2c-35c6a6bb4b58.JPG)
 <br/>
+PackedSorted
 ![PackedSorted_result](https://user-images.githubusercontent.com/79328858/170777137-2acc998a-bdc9-4e00-9549-64087956aec5.JPG)
 <br/>
 -----
