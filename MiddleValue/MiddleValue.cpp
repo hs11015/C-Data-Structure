@@ -11,7 +11,7 @@ public:
 	int Size();
 	int Top();
 	void Insert(int x);
-	void Delete(); //topÀ» delete
+	void Delete(); //topì„ delete
 	int a[1000];
 	int n;
 };
@@ -75,7 +75,7 @@ public:
 	int Size();
 	int Top();
 	void Insert(int x);
-	void Delete(); //topÀ» delete
+	void Delete(); //topì„ delete
 	int a[1000];
 	int n;
 };
@@ -166,7 +166,7 @@ int main() {
 				lcnt++;
 			}
 			else { //lcnt == rcnt + 1;
-				if (x <= Left.Top()) {	// ±³¼ö´Ô ÄÚµå¿¡ x<=Right.Top()ÀÌ¶ó°í µÇ¾îÀÖ´Âµ¥ ÀÌ·¸°Ô ÇÏ¸é Ã³À½¿¡ °ªÀÌ Á¦´ë·Î ³ª¿ÀÁö ¾ÊÀ½
+				if (x <= Left.Top()) {	// êµìˆ˜ë‹˜ ì½”ë“œì— x<=Right.Top()ì´ë¼ê³  ë˜ì–´ìˆëŠ”ë° ì´ë ‡ê²Œ í•˜ë©´ ì²˜ìŒì— ê°’ì´ ì œëŒ€ë¡œ ë‚˜ì˜¤ì§€ ì•ŠìŒ
 					y = Left.Top();
 					Left.Delete();
 					Right.Insert(y);
