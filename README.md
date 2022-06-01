@@ -78,3 +78,11 @@ Middle Value
 <br/>
 ![MiddleValue_result](https://user-images.githubusercontent.com/79328858/170777359-42dab822-c35c-4e66-84b9-ff0715b76bb4.JPG)
 <br/>
+
+
+<MST 결과>
+<br/>
+MST
+<br/>
+![MST_result](https://user-images.githubusercontent.com/79328858/171359145-86e1f768-1486-4bc5-9e6f-019c253b280c.JPG)
+<br/>
